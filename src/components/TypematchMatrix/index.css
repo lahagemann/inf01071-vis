@@ -1,0 +1,51 @@
+.TypematchMatrix {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.TypematchMatrix__matrix {
+  height: 60vh;
+  width: 60vw;
+  background-color: pink;
+}
+
+.PokemonRoster {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.PokemonRoster__pokemon {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.PokemonRoster__pokemon:hover {
+  background-color: #eee;
+}
+
+.PokemonRoster__pokemon img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border-style: dashed;
+  margin-bottom: 10px;
+}
+
+.PokemonRoster__choose {
+  display: flex;
+  margin-right: 20px;
+}
+
+.PokemonRoster__choose img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  border-style: dashed;
+}

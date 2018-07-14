@@ -4,7 +4,10 @@
   "homepage": "https://lahagemann.github.io/inf01071-vis/",
   "private": true,
   "dependencies": {
+    "d3": "^5.4.0",
     "gh-pages": "^1.2.0",
+    "papaparse": "^4.5.0",
+    "pokemon-images": "^2.0.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"

@@ -1,28 +1,57 @@
 import React, { Component } from 'react'
-import Pokemon from 'pokemon-images'
-import plus_wikipedia from '../../data/resources/plus_wikipedia.png'
+import { MenuItem, SelectField } from 'material-ui'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Moves from './Moves'
 import './index.css'
 
 class Pkm extends Component {
+  handleChange = (event, index, value) => this.props.choosePkmAction(value)
+
   render() {
-    const { pokemonInfo } = this.props
+    const { pokemonInfo, dataset, moveset } = this.props
 
     return (
       pokemonInfo ? (
         <div className="PokemonRoster__pokemon">
+          <MuiThemeProvider>
+            <SelectField
+              value={pokemonInfo.pokemon}
+              onChange={this.handleChange}
+              style={{width: 110}}
+              autoWidth={true}
+            >
+            {dataset.map(pkm => (
+              <MenuItem key={pkm.Name} value={pkm} primaryText={pkm.Name} />
+            ))}
+            </SelectField>
+          </MuiThemeProvider>
           <img
-            src={Pokemon.getSprite(pokemonInfo.Name.toLowerCase())}
+            src={require(`../../data/resources/pokemon/${pokemonInfo.pokemon.Name}.png`)}
+            alt="Pokémon choosen by user"
           />
-          <div>
-            <div>move 1</div>
-            <div>move 2</div>
-            <div>move 3</div>
-            <div>move 4</div>
-          </div>
+          <Moves
+            moveset={moveset}
+            pokemonInfo={pokemonInfo}
+            updatePkmAction={this.props.updatePkmAction}
+          />
         </div>) : (
         <div className="PokemonRoster__choose">
+          <MuiThemeProvider>
+            <SelectField
+              value={null}
+              onChange={this.handleChange}
+              style={{width: 110}}
+              autoWidth={true}
+            >
+            {dataset.map(pkm => (
+              <MenuItem key={pkm.Name} value={pkm} primaryText={pkm.Name} />
+            ))}
+
+            </SelectField>
+          </MuiThemeProvider>
           <img
-            src={plus_wikipedia}
+            src={require('../../data/resources/pokemon/0.png')}
+            alt="Choose a pokémon"
           />
         </div>
         )

@@ -5,33 +5,53 @@ import './index.css'
 
 class PokemonRoster extends Component {
   render() {
-    const { roster, chooseAction } = this.props
+    const { roster, dataset, moveset } = this.props
+    const { chooseFirstPkm, chooseSecondPkm, chooseThirdPkm, chooseFourthPkm, chooseFifthPkm, chooseSixthPkm } = this.props
+    const { updateFirstPkm, updateSecondPkm, updateThirdPkm, updateFourthPkm, updateFifthPkm, updateSixthPkm } = this.props
 
     return (
       <div className="PokemonRoster">
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.first}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseFirstPkm}
+          updatePkmAction={updateFirstPkm}
         />
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.second}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseSecondPkm}
+          updatePkmAction={updateSecondPkm}
         />
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.third}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseThirdPkm}
+          updatePkmAction={updateThirdPkm}
         />
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.fourth}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseFourthPkm}
+          updatePkmAction={updateFourthPkm}
         />
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.fifth}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseFifthPkm}
+          updatePkmAction={updateFifthPkm}
         />
         <Pkm
+          dataset={dataset}
+          moveset={moveset}
           pokemonInfo={roster.sixth}
-          chooseAction={chooseAction}
+          choosePkmAction={chooseSixthPkm}
+          updatePkmAction={updateSixthPkm}
         />
       </div>
     )

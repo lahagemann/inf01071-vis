@@ -12,7 +12,7 @@ class Moves extends Component {
       ...this.props.pokemonInfo,
       move1: this.getMove(value)
     }
-    this.props.updatePkmAction(pkmInfo)
+    this.props.updatePkmAction(this.getMove(value), pkmInfo)
   }
 
   handleMove2Change = (event, index, value) => {
@@ -20,7 +20,7 @@ class Moves extends Component {
       ...this.props.pokemonInfo,
       move2: this.getMove(value)
     }
-    this.props.updatePkmAction(pkmInfo)
+    this.props.updatePkmAction(this.getMove(value), pkmInfo)
   }
 
   handleMove3Change = (event, index, value) => {
@@ -28,7 +28,7 @@ class Moves extends Component {
       ...this.props.pokemonInfo,
       move3: this.getMove(value)
     }
-    this.props.updatePkmAction(pkmInfo)
+    this.props.updatePkmAction(this.getMove(value), pkmInfo)
   }
 
   handleMove4Change = (event, index, value) => {
@@ -36,7 +36,7 @@ class Moves extends Component {
       ...this.props.pokemonInfo,
       move4: this.getMove(value)
     }
-    this.props.updatePkmAction(pkmInfo)
+    this.props.updatePkmAction(this.getMove(value), pkmInfo)
   }
 
   render() {

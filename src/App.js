@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1> Competitive Pokémon Visualization App </h1>
+          <h1> PokéVis: Competitive Pokémon Visualization App </h1>
         </header>
         <section>
           {(this.state.vis === "TierPlot") ? (

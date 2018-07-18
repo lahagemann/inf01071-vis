@@ -17,7 +17,7 @@ class Pkm extends Component {
             <SelectField
               value={pokemonInfo.pokemon}
               onChange={this.handleChange}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {dataset.map(pkm => (
@@ -40,7 +40,7 @@ class Pkm extends Component {
             <SelectField
               value={null}
               onChange={this.handleChange}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {dataset.map(pkm => (

@@ -50,7 +50,7 @@ class Moves extends Component {
             <SelectField
               value={pokemonInfo.move1 ? pokemonInfo.move1.Name : null}
               onChange={this.handleMove1Change}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {pokemonInfo.moves.map(move => (
@@ -64,7 +64,7 @@ class Moves extends Component {
             <SelectField
               value={pokemonInfo.move2 ? pokemonInfo.move2.Name : null}
               onChange={this.handleMove2Change}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {pokemonInfo.moves.map(move => (
@@ -78,7 +78,7 @@ class Moves extends Component {
             <SelectField
               value={pokemonInfo.move3 ? pokemonInfo.move3.Name : null}
               onChange={this.handleMove3Change}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {pokemonInfo.moves.map(move => (
@@ -92,7 +92,7 @@ class Moves extends Component {
             <SelectField
               value={pokemonInfo.move4 ? pokemonInfo.move4.Name : null}
               onChange={this.handleMove4Change}
-              style={{width: 110}}
+              style={{width: 135, fontSize: 13}}
               autoWidth={true}
             >
             {pokemonInfo.moves.map(move => (

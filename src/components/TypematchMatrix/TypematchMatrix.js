@@ -7,6 +7,8 @@ import typematch from '../../data/typeMatchup'
 import moveset from '../../data/moves'
 import heatColor from '../../data/heatColor'
 
+import '../../App.css'
+
 var Papa = require("papaparse/papaparse.min.js");
 
 class TypematchMatrix extends Component {
@@ -93,8 +95,6 @@ class TypematchMatrix extends Component {
       [string]: pkm
     }
 
-    console.log(move)
-
     const updatedMatrix = this.makeUpdatedMatrix(move)
     const updatedData = this.buildDataFromMatrix(updatedMatrix)
 
@@ -168,6 +168,7 @@ class TypematchMatrix extends Component {
         <Matrix
           data={this.state.data}
         />
+        <h3>Pokémon Roster </h3>
         <PokemonRoster
           dataset={this.state.pkmDataset.data}
           moveset={this.state.moveDataset.data}

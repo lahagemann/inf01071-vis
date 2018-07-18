@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@nivo/heatmap": "^0.42.1",
+    "@nivo/scatterplot": "^0.42.1",
     "gh-pages": "^1.2.0",
     "material-ui": "^0.20.1",
     "papaparse": "^4.5.0",

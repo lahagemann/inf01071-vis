@@ -3,8 +3,25 @@
 }
 
 .Sidebar {
-  width: 300px;
-  margin-top: 70px;
+  width: 20vw;
+  margin: 20px;
+  padding: 15px;
+  background-color: #eee;
+}
+
+.Sidebar:hover {
+  width: 20vw;
+  margin: 20px;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.TierPlot {
+  width: 90vw;
+}
+
+.TypematchMatrix {
+  width: 80vw;
 }
 
 section {

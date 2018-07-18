@@ -1,14 +1,14 @@
 const tierRelation = {
   Any: ["Uber", "OU", "UU", "UUBL", "RU", "RUBL", "NU", "NUBL", "PU", "PUBL", "LC"],
   Uber: ["Uber"],
-  OU: ["OU"],
-  UU: ["UU", "UUBL"],
+  OU: ["OU", "UUBL"],
+  UU: ["UU", "RUBL"],
   UUBL: ["UUBL"],
-  RU: ["RU", "RUBL"],
+  RU: ["RU", "NUBL"],
   RUBL: ["RUBL"],
-  NU: ["NU", "NUBL"],
+  NU: ["NU", "PUBL"],
   NUBL: ["NUBL"],
-  PU: ["PU", "PUBL"],
+  PU: ["PU"],
   PUBL: ["PUBL"],
   LC: ["LC"]
 }

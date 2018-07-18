@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { ScatterPlot } from '@nivo/scatterplot'
-import { MenuItem, SelectField } from 'material-ui'
+import { MenuItem, SelectField, Popover } from 'material-ui'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import dataset from '../../data/pkmDataset'
 import tierRelation from '../../data/tierRelation'
+
+import './index.css'
 
 var Papa = require("papaparse/papaparse.min.js");
 
@@ -25,7 +27,9 @@ class TierPlot extends Component {
       xAxis: "Attack",
       yAxis: "Special Attack",
       tier: "Any",
-      data: this.buildData(parsed.data, "Any", "Attack", "Special Attack")
+      data: this.buildData(parsed.data, "Any", "Attack", "Special Attack"),
+      openInfo: false,
+      pkmInfo: null
     })
   }
 
@@ -50,8 +54,18 @@ class TierPlot extends Component {
     })
   }
 
-  handleDotClick = (data) => {
-    console.log(this.getPkm(data.id))
+  handleDotClick = (data, e) => {
+    this.setState({
+      openInfo: true,
+      pkmInfo: this.getPkm(data.id),
+      anchorEl: e.currentTarget,
+    })
+  }
+
+  handleRequestClose = () => {
+    this.setState({
+      openInfo: false,
+    })
   }
 
   getPkm(name) {
@@ -126,7 +140,7 @@ class TierPlot extends Component {
                   "symbolShape": "circle"
               }
           ]}
-          onClick={data => this.handleDotClick(data)}
+          onClick={(data,e) => this.handleDotClick(data,e)}
           width={700}
           height={700}
         />
@@ -136,7 +150,7 @@ class TierPlot extends Component {
             floatingLabelFixed={true}
             value={this.state.xAxis}
             onChange={this.handleChangeX}
-            style={{width: 190, fontSize: 13}}
+            style={{width: 190, fontSize: 13, marginRight: 20}}
             autoWidth={true}
           >
             <MenuItem value="HP" primaryText="HP" />
@@ -153,7 +167,7 @@ class TierPlot extends Component {
             floatingLabelFixed={true}
             value={this.state.yAxis}
             onChange={this.handleChangeY}
-            style={{width: 190, fontSize: 13}}
+            style={{width: 190, fontSize: 13, marginRight: 20}}
             autoWidth={true}
           >
             <MenuItem value="HP" primaryText="HP" />
@@ -170,22 +184,51 @@ class TierPlot extends Component {
             floatingLabelFixed={true}
             value={this.state.tier}
             onChange={this.handleChangeTier}
-            style={{width: 190, fontSize: 13}}
+            style={{width: 190, fontSize: 13, marginRight: 20}}
             autoWidth={true}
           >
             <MenuItem value="Any" primaryText="Any" />
             <MenuItem value="Uber" primaryText="Uber" />
             <MenuItem value="OU" primaryText="Over Used" />
             <MenuItem value="UU" primaryText="Under Used" />
-            <MenuItem value="UUBL" primaryText="Under Used Borderline" />
+            <MenuItem value="UUBL" primaryText="Under Used Ban List" />
             <MenuItem value="RU" primaryText="Rarely Used" />
-            <MenuItem value="RUBL" primaryText="Rarely Used Borderline" />
+            <MenuItem value="RUBL" primaryText="Rarely Used Ban List" />
             <MenuItem value="NU" primaryText="Never Used" />
-            <MenuItem value="NUBL" primaryText="Never Used Borderline" />
+            <MenuItem value="NUBL" primaryText="Never Used Ban List" />
             <MenuItem value="PU" primaryText="PU" />
-            <MenuItem value="PUBL" primaryText="PU Borderline" />
+            <MenuItem value="PUBL" primaryText="PU Ban List" />
             <MenuItem value="LC" primaryText="Little Cup" />
           </SelectField>
+        </MuiThemeProvider>
+        <MuiThemeProvider>
+          <Popover
+            open={this.state.openInfo}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+            onRequestClose={this.handleRequestClose}
+          >
+            {this.state.pkmInfo ? (
+              <div className="TierPlot__info">
+                <img
+                  src={require(`../../data/resources/pokemon/${this.state.pkmInfo.Name}.png`)}
+                  alt={this.state.pkmInfo.Name}
+                />
+                <div>{this.state.pkmInfo.Name}</div>
+                <div>Type: {this.state.pkmInfo.Types}</div>
+                <div>HP: {this.state.pkmInfo.HP}</div>
+                <div>Attack: {this.state.pkmInfo.Attack}</div>
+                <div>Defense: {this.state.pkmInfo.Defense}</div>
+                <div>Special Attack: {this.state.pkmInfo["Special Attack"]}</div>
+                <div>Special Defense: {this.state.pkmInfo["Special Defense"]}</div>
+                <div>Speed: {this.state.pkmInfo.Speed}</div>
+              </div>
+            ) : (
+                null
+            )}
+
+          </Popover>
         </MuiThemeProvider>
       </div>
     )

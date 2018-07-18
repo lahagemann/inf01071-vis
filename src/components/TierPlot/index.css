@@ -1,0 +1,15 @@
+.TierPlot__info {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.TierPlot__info img {
+  border-radius: 50%;
+  border-style: dashed;
+  margin-bottom: 10px;
+}
+
+.TierPlot__info div {
+  margin-bottom: 5px;
+}
